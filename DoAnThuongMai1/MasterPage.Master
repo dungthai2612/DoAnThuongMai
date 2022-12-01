@@ -1,0 +1,130 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="DoAnThuongMai1.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        .main{
+            display:flex;
+            border: 1px solid black;
+
+        }
+        .hang-san-xuat{
+            flex:1;
+            border: 1px solid black;
+        }
+        .hang-san-xuat-td{
+            text-align:center;
+            font-size:28px;
+            padding:10px;
+            border :1px solid black;
+        }
+        .danh-sach{
+            list-style:none;
+        }
+        .item{
+            display:block;
+            padding:10px 20px;
+            border 1px solid black;
+            font-size:16px;
+            color:blue;
+        }
+        .item:hover{
+            color:red;
+        }
+        .noi-dung{
+            flex:2;
+            border: 1px solid black;
+        }
+        .dang-nhap{
+            flex:1;
+            border: 1px solid black;
+        }
+        .dang-nhap-tieu-de{
+            text-align:center;
+            margin:10px;
+        }
+        .dang-nhap-hang{
+            text-align:center;
+            margin:10px;
+        }
+        .dang-nhap-hang-btn{
+            font-size:16px;
+            padding:5px 10px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+            <div class="main">
+                <div class="hang-san-xuat">
+                    <h2 class="hang-san-xuat-td">Hãng sản xuất</h2>
+                    <ul class="hang-san-xuat-ds">
+                    <asp:Repeater ID="rptHangSanXuat" runat="server">
+                        <ItemTemplate>
+                            <li class="danh-sach">
+                            <a class="item" href="SanPham.aspx?MaNSX=<%#:Eval("MaNSX") %>"> <%#:Eval("TenHang") %> </a>
+                        </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    </ul>
+                    
+                   <%-- <ul class="hang-san-xuat-ds">
+                        <li class="danh-sach">
+                            <a class="item" href="">đồng hồ</a>
+                        </li>
+                        <li class="danh-sach">
+                            <a class="item" href="">đồng hồ</a>
+                        </li>
+                        <li class="danh-sach">
+                            <a class="item" href="">đồng hồ</a>
+                        </li>
+                        <li class="danh-sach">
+                            <a class="item" href="">đồng hồ</a>
+                        </li>
+                    </ul>--%>
+                </div>
+                <div class="noi-dung">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+               <%-- hiển thị web khác ở đây--%>
+                </asp:ContentPlaceHolder>
+                </div>
+                <div class="dang-nhap">
+                    <from id="from1">
+                         <h2 class="dang-nhap-tieu-de" >Đăng nhập</h2>
+                    <div class ="dang-nhap-hang">
+                        <span class="hang-tieu-de">Đăng nhập</span>
+                        <input class="hang-input" type="text" />
+                    </div>
+                    <div class ="dang-nhap-hang">
+                        <span class="hang-tieu-de">Mật khẩu</span>
+                        <input class="hang-input" type="text" />
+                    </div>
+                    <div class ="dang-nhap-hang">
+                        <input  type="checkbox" />
+                        <span class="hang-tieu-de">Nhớ thông tin đăng nhập </span>
+                    </div>
+                    <div class ="dang-nhap-hang">
+                        
+                        <input class="dang-nhap-hang-btn" type="button" value="Đăng nhập" />
+                    </div>
+                </div>
+                    </from>
+                   
+            </div>
+
+
+
+            
+</body>
+</html>
